@@ -4,7 +4,7 @@ const Employee = require("../../models/employee");
 module.exports = app => {
   //@route GET api/employees
   //@desc Get all employees data
-  app.get("/", (req, res) => {
+  app.get("/api/employees", (req, res) => {
     Employee.find()
       .sort({ date: -1 })
       .then(employees => res.json(employees));
@@ -12,7 +12,7 @@ module.exports = app => {
 
   //@route POST api/employees
   //@desc create new employee data
-  app.post("/addEmployee", (req, res) => {
+  app.post("/api/addEmployee", (req, res) => {
     const newEmployee = new Employee({
       name: req.body.name,
       email: req.body.email,
