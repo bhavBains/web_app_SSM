@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "View and save employee's details",
   "main": "index.js",
+  "engines": {
+    "node": "12.6.0",
+    "npm": "6.10.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "bhavBains",
   "license": "ISC",
