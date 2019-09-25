@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 class EmployeeList extends Component {
@@ -12,7 +13,7 @@ class EmployeeList extends Component {
 
   componentDidMount() {
     axios.get("/api/employees").then(res => {
-      console.log(res);
+      console.log(res.data);
       this.setState({ employees: res.data });
     });
   }
@@ -21,24 +22,28 @@ class EmployeeList extends Component {
     return (
       <div>
         <Navbar />
-        {this.state.employees.map(employee => (
-          <div className="row">
-            <div className="col s12 m6">
-              <div className="card blue-grey darken-1">
+        <div className="fixed-action-btn">
+          <Link to="/addEmployee" className="btn-floating btn-large red">
+            <i className="material-icons">add</i>
+          </Link>
+        </div>
+        <div className="row">
+          {this.state.employees.map(employee => (
+            <div className="col m3" key={employee._id}>
+              <div className="card-panel blue-grey darken-1">
                 <div className="card-content white-text">
                   <span className="card-title">
-                    <h2>{employee.name}</h2>
+                    <h5>{employee.name}</h5>
                   </span>
-                  <h6>E-mail: {employee.email}</h6>
-                  <h6>Position: {employee.position}</h6>
-                  <h6>Contact: {employee.contact}</h6>
-                  <h6>Salary: {employee.salary}</h6>
-                  <h6>Hiring Date: {employee.dateHired}</h6>
+                  <p>E-mail: {employee.email}</p>
+                  <p>Position: {employee.position}</p>
+                  <p>Contact: {employee.contact}</p>
+                  <p>Salary: {employee.salary}</p>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }

@@ -13,17 +13,25 @@ module.exports = app => {
   //@route POST api/employees
   //@desc create new employee data
   app.post("/api/addEmployee", (req, res) => {
-    const newEmployee = new Employee({
-      name: req.body.name,
-      email: req.body.email,
-      position: req.body.position,
-      phone: req.body.phone,
-      salary: req.body.salary,
-      dateHired: req.body.dateHired
+    let existingEmail = req.body.email;
+    Employee.findOne({ email: `${existingEmail}` }).then(employee => {
+      if (employee) {
+        res.json({ error: "email taken" });
+      } else {
+        const newEmployee = new Employee({
+          name: req.body.name,
+          email: req.body.email,
+          position: req.body.position,
+          phone: req.body.phone,
+          salary: req.body.salary,
+          dateHired: req.body.dateHired
+        })
+          .save()
+          .then(employee => {
+            res.send(employee);
+          })
+          .catch(err => res.send(err));
+      }
     });
-    newEmployee
-      .save()
-      .then(employee => res.json(employee))
-      .catch(err => res.status(404).json({ success: false }));
   });
 };
