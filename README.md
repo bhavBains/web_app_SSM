@@ -12,6 +12,6 @@ A mini web app to view and save employee data
 
 ## To Do
 
--Delete and Update functionality(can be easily achieved by sending /:id along with request and using `findOneAndDelete`, `findOneAndUpdate` queries)
--Search for employee by name(or other parameters), take the input and write a query matching keyword, display result in new component
--Will work on these if needed.
+- Delete and Update functionality(can be easily achieved by sending /:id along with request and using `findOneAndDelete`, `findOneAndUpdate` queries)
+- Search for employee by name(or other parameters), take the input and write a query matching keyword, display result in new component
+- Will work on these if needed.
