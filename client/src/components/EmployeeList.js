@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
 import Navbar from "./Navbar";
 
 class EmployeeList extends Component {
@@ -39,6 +40,10 @@ class EmployeeList extends Component {
                   <p>Position: {employee.position}</p>
                   <p>Contact: {employee.phone}</p>
                   <p>Salary: {employee.salary}</p>
+                  <p>
+                    Date Hired:{" "}
+                    <Moment format="MM-DD-YYYY">{employee.dateHired}</Moment>
+                  </p>
                 </div>
               </div>
             </div>
