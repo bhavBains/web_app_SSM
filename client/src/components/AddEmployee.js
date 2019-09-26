@@ -19,7 +19,7 @@ class AddEmployee extends Component {
   handleChange = e => {
     const nam = e.target.name;
     const val = e.target.value;
-    console.log(this.state.dateHired);
+    // console.log(this.state);
     this.setState({ [nam]: val });
   };
 
@@ -61,7 +61,7 @@ class AddEmployee extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
+                <i className="material-icons prefix">email</i>
                 <input
                   required
                   className="validate"
@@ -77,7 +77,7 @@ class AddEmployee extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
+                <i className="material-icons prefix">perm_identity</i>
                 <input
                   required
                   className="validate"
@@ -92,7 +92,7 @@ class AddEmployee extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
+                <i className="material-icons prefix">phone</i>
                 <input
                   required
                   className="validate"
@@ -107,7 +107,7 @@ class AddEmployee extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
+                <i className="material-icons prefix">attach_money</i>
                 <input
                   className="validate"
                   placeholder="Salary"
@@ -121,7 +121,7 @@ class AddEmployee extends Component {
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <i className="material-icons prefix">account_circle</i>
+                <i className="material-icons prefix">perm_contact_calendar</i>
                 <input
                   className="validate"
                   placeholder="Date Hired(mm/dd/yyyy)"

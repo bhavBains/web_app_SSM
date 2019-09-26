@@ -16,6 +16,8 @@ module.exports = app => {
     let existingEmail = req.body.email;
     Employee.findOne({ email: `${existingEmail}` }).then(employee => {
       if (employee) {
+        //error to show in browser
+        //query can be check against other inputs as well
         res.json({ error: "email taken" });
       } else {
         const newEmployee = new Employee({

@@ -13,7 +13,7 @@ class EmployeeList extends Component {
 
   componentDidMount() {
     axios.get("/api/employees").then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({ employees: res.data });
     });
   }
@@ -37,7 +37,7 @@ class EmployeeList extends Component {
                   </span>
                   <p>E-mail: {employee.email}</p>
                   <p>Position: {employee.position}</p>
-                  <p>Contact: {employee.contact}</p>
+                  <p>Contact: {employee.phone}</p>
                   <p>Salary: {employee.salary}</p>
                 </div>
               </div>
