@@ -10,6 +10,13 @@ module.exports = app => {
       .then(employees => res.json(employees));
   });
 
+  app.delete("/api/deleteEntry/:id", (req, res) => {
+    let id = req.params.id;
+    Employee.findByIdAndDelete({ _id: id })
+      .then(result => res.json({ message: "deleted" }))
+      .catch(err => res.json({ message: "not deleted" }));
+  });
+
   //@route POST api/employees
   //@desc create new employee data
   app.post("/api/addEmployee", (req, res) => {

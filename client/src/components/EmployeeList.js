@@ -19,6 +19,12 @@ class EmployeeList extends Component {
     });
   }
 
+  deleteEntry = id => {
+    axios.delete(`/api/deleteEntry/${id}`).then(res => {
+      this.componentDidMount();
+    });
+  };
+
   render() {
     return (
       <div>
@@ -30,7 +36,7 @@ class EmployeeList extends Component {
         </div>
         <div className="row">
           {this.state.employees.map(employee => (
-            <div className="col m3" key={employee._id}>
+            <div className="col m3 s12" key={employee._id}>
               <div className="card-panel blue-grey darken-1">
                 <div className="card-content white-text">
                   <span className="card-title">
@@ -44,6 +50,12 @@ class EmployeeList extends Component {
                     Date Hired:{" "}
                     <Moment format="MM-DD-YYYY">{employee.dateHired}</Moment>
                   </p>
+                  <a
+                    class="waves-effect waves-light btn white red-text"
+                    onClick={this.deleteEntry.bind(this, employee._id)}
+                  >
+                    <i class="material-icons">delete_forever</i>
+                  </a>
                 </div>
               </div>
             </div>
